@@ -1,0 +1,179 @@
+:root {
+    --bg-color: #e0f7fa;
+    --primary: #00bcd4;
+    --dark-blue: #006064;
+    --white: #ffffff;
+    --shadow: 0 4px 15px rgba(0, 188, 212, 0.3);
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--dark-blue);
+}
+
+.app-container {
+    background: rgba(255, 255, 255, 0.9);
+    width: 100%;
+    max-width: 400px; /* Tamanho de celular */
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.tracker-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Círculo de Progresso */
+.progress-circle {
+    width: 150px;
+    height: 150px;
+    background: conic-gradient(var(--primary) 0%, #ddd 0%); /* Será manipulado via JS */
+    border-radius: 50%;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: var(--shadow);
+}
+
+.progress-circle::before {
+    content: '';
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    background: var(--white);
+    border-radius: 50%;
+}
+
+.progress-circle span, .progress-circle small {
+    position: relative;
+    z-index: 2;
+}
+
+.progress-circle span {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+/* Botões */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.btn-water {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s;
+    flex: 1;
+}
+
+.btn-water:hover {
+    transform: scale(1.05);
+    background-color: #00acc1;
+}
+
+.btn-custom {
+    background-color: transparent;
+    border: 2px dashed var(--primary);
+    color: var(--primary);
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Lista Histórico */
+.history-section {
+    flex-grow: 1;
+    overflow-y: auto; /* Rolagem apenas na lista */
+}
+
+.list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.log-item {
+    background: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    animation: slideIn 0.3s ease;
+}
+
+.log-info strong {
+    display: block;
+    font-size: 1.1rem;
+}
+.log-info span {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-left: 5px;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.hidden { display: none; }
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 15px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1.1rem;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

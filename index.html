@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HydroTrack - Contador de Água 💧</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="app-container">
+        <header class="tracker-header">
+            <h1>HydroTrack 💧</h1>
+            <div class="progress-circle">
+                <span id="totalDisplay">0</span>
+                <small>ml</small>
+            </div>
+            <p>Meta diária: <span id="metaDisplay">2500</span>ml</p>
+        </header>
+
+        <section class="controls">
+            <button onclick="adicionarAgua(250)" class="btn-water small">
+                🥤 250ml
+            </button>
+            <button onclick="adicionarAgua(500)" class="btn-water medium">
+                🍶 500ml
+            </button>
+            <button onclick="abrirModalPersonalizado()" class="btn-custom">
+                ➕ Outro
+            </button>
+        </section>
+
+        <hr>
+
+        <section class="history-section">
+            <h3>Histórico de Hoje</h3>
+            <div id="listaHistorico" class="list-container">
+                </div>
+        </section>
+    </main>
+
+    <div id="modalEditor" class="modal hidden">
+        <div class="modal-content">
+            <h3 id="modalTitulo">Adicionar Água</h3>
+            <input type="number" id="inputQtd" placeholder="Quantidade em ml" step="50">
+            <input type="hidden" id="editId">
+            <div class="modal-actions">
+                <button onclick="fecharModal()" class="btn-cancel">Cancelar</button>
+                <button onclick="salvarPersonalizado()" class="btn-confirm">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
