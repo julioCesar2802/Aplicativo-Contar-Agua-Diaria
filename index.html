@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en-US">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HydroTrack - Contador de Água 💧</title>
+    <title>HydroTrack - Water Tracker 💧</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,38 +15,38 @@
                 <span id="totalDisplay">0</span>
                 <small>ml</small>
             </div>
-            <p>Meta diária: <span id="metaDisplay">2500</span>ml</p>
+            <p>Daily goal: <span id="goalDisplay">2500</span>ml</p>
         </header>
 
         <section class="controls">
-            <button onclick="adicionarAgua(250)" class="btn-water small">
+            <button onclick="addWater(250)" class="btn-water small">
                 🥤 250ml
             </button>
-            <button onclick="adicionarAgua(500)" class="btn-water medium">
+            <button onclick="addWater(500)" class="btn-water medium">
                 🍶 500ml
             </button>
-            <button onclick="abrirModalPersonalizado()" class="btn-custom">
-                ➕ Outro
+            <button onclick="openCustomModal()" class="btn-custom">
+                ➕ Custom
             </button>
         </section>
 
         <hr>
 
         <section class="history-section">
-            <h3>Histórico de Hoje</h3>
-            <div id="listaHistorico" class="list-container">
-                </div>
+            <h3>Today's History</h3>
+            <div id="historyList" class="list-container">
+            </div>
         </section>
     </main>
 
-    <div id="modalEditor" class="modal hidden">
+    <div id="editorModal" class="modal hidden">
         <div class="modal-content">
-            <h3 id="modalTitulo">Adicionar Água</h3>
-            <input type="number" id="inputQtd" placeholder="Quantidade em ml" step="50">
+            <h3 id="modalTitle">Add Water</h3>
+            <input type="number" id="inputAmount" placeholder="Amount in ml" step="50">
             <input type="hidden" id="editId">
             <div class="modal-actions">
-                <button onclick="fecharModal()" class="btn-cancel">Cancelar</button>
-                <button onclick="salvarPersonalizado()" class="btn-confirm">Salvar</button>
+                <button onclick="closeModal()" class="btn-cancel">Cancel</button>
+                <button onclick="saveCustom()" class="btn-confirm">Save</button>
             </div>
         </div>
     </div>
